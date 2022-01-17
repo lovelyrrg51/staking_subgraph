@@ -1,0 +1,25 @@
+{
+  "name": "dexf-subgraph",
+  "version": "1.0.0",
+  "repository": "git@github.com:lovelyrrg51/staking_subgraph.git",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "codegen": "graph codegen --output-dir src/types/",
+    "build": "graph build",
+    "create-local": "graph create defiknight/dexf-subgraph --node http://127.0.0.1:8020",
+    "deploy-local": "graph deploy defiknight/dexf-subgraph --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+    "deploy": "graph deploy --access-token 4150281722ec40cea8c1260fd00dc826 defiknight/dexf-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug",
+    "deploy-staging": "graph deploy $THE_GRAPH_GITHUB_USER/$THE_GRAPH_SUBGRAPH_NAME /jetswap-subgraph --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/",
+    "watch-local": "graph deploy defiknight/dexf-subgraph --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.19.0",
+    "@graphprotocol/graph-ts": "^0.19.0",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3"
+  }
+}

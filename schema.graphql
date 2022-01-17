@@ -1,0 +1,8 @@
+type StakingAction @entity {
+    id: ID!
+    user: Bytes!
+    amount: BigInt!
+    blockNumber: Int!
+    blockTimestamp: Int!
+    txHash: String!
+}

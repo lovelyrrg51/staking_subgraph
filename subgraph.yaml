@@ -1,0 +1,26 @@
+specVersion: 0.0.2
+description: Staking_Subgraph
+repository: https://github.com/lovelyrrg51/staking_subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: LpFarming
+    network: bsc
+    source:
+      address: '0xc4C9E897a2996e1FC794cf73E39a7F024145d0Cc'
+      abi: LpFarming
+      startBlock: 10742118
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/lpFarming.ts
+      entities:
+        - Pair
+      abis:
+        - name: LpFarming
+          file: ./abis/LpFarming.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256)
+          handler: handleStake
